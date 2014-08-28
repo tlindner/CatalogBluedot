@@ -1,3 +1,14 @@
+/*
+ 
+Catalog Bluedot
+ 
+Catalog a filesystem into a sqlite database
+ 
+Copyright 2014 tim lindner. All Rights Reserved.
+ 
+ 
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

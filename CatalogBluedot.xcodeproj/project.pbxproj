@@ -31,6 +31,7 @@
 		22FDFBF519AEB85400CF78EC /* CatalogBluedot.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CatalogBluedot.1; sourceTree = "<group>"; };
 		22FDFBFC19AEB8A700CF78EC /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3.c; path = "sqlite-amalgamation-3080402/sqlite3.c"; sourceTree = "<group>"; };
 		22FDFBFD19AEB8A700CF78EC /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sqlite3.h; path = "sqlite-amalgamation-3080402/sqlite3.h"; sourceTree = "<group>"; };
+		22FDFBFF19AEBAE300CF78EC /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				22FDFBF319AEB85400CF78EC /* main.c */,
+				22FDFBFF19AEBAE300CF78EC /* README */,
 				22FDFBFC19AEB8A700CF78EC /* sqlite3.c */,
 				22FDFBFD19AEB8A700CF78EC /* sqlite3.h */,
 				22FDFBF519AEB85400CF78EC /* CatalogBluedot.1 */,

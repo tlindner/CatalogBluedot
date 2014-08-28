@@ -1,0 +1,9 @@
+Catalog Bluedot
+
+Command line program to catalog a file system into a sqlite database
+
+Usage:
+
+CatalogBluedot /path/to/database.sqlite /path/to/filesystem/
+
+Copyright 2014 tim lindner. All rights reserved.
