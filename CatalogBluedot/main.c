@@ -1,10 +1,10 @@
 /*
  
-Catalog Bluedot
+ Catalog Bluedot
  
-Catalog a filesystem into a sqlite database
+ Catalog a filesystem into a sqlite database
  
-Copyright 2014 tim lindner. All Rights Reserved.
+ Copyright 2014 tim lindner. All Rights Reserved.
  
  
  */
@@ -24,7 +24,7 @@ void do_dir( DIR *dp, const char *path, size_t omit );
 int count = 0;
 
 int main (int argc, const char * argv[]) {
-    // insert code here...
+
     if (argc != 3) {
         fprintf( stderr, "CatalogBluedot requires two parameters:\n%s [path to database] [path to start scanning]\n", argv[0]);
         return 0;
@@ -48,7 +48,7 @@ int main (int argc, const char * argv[]) {
         return sql_err;
     }
     
-	sql_err = sqlite3_exec(ppDb, "CREATE TABLE IF NOT EXISTS PATHS (id INTEGER PRIMARY KEY, path TEXT, name TEXT);", NULL, NULL, &sErrMsg);
+	sql_err = sqlite3_exec(ppDb, "CREATE TABLE IF NOT EXISTS PATHS (id INTEGER PRIMARY KEY, source TEXT, path TEXT, name TEXT);", NULL, NULL, &sErrMsg);
 
     if (sql_err != 0) {
         fprintf(stderr, "Could not create PATH table");
@@ -56,13 +56,13 @@ int main (int argc, const char * argv[]) {
         return sql_err;
     }
     
-    sprintf(sSQL, "INSERT INTO PATHS VALUES (NULL, @path, @name);");
+    sprintf(sSQL, "INSERT INTO PATHS VALUES (NULL, 'Live', @path, @name);");
     sql_err = sqlite3_exec(ppDb, "BEGIN TRANSACTION", NULL, NULL, &sErrMsg);
 
     sql_err = sqlite3_prepare_v2(ppDb, sSQL, BUFFER_SIZE, &stmt, &tail);
     
     if (stmt == NULL) {
-        fprintf(stderr,"Prepared failed\n" );
+        fprintf(stderr,"Prepared failed: error code: %d\n", sql_err );
         return -1;
     }
 
@@ -75,7 +75,7 @@ int main (int argc, const char * argv[]) {
     sqlite3_finalize(stmt);
     sqlite3_close( ppDb );
     
-    printf( "CatalogBluedot file count: %d", count );
+    printf( "CatalogBluedot file count: %d\n", count );
     
 	return 0;
 }
